@@ -43,3 +43,12 @@ incluido b Vacio = False
 incluido (CongruentesA resto1 divisor1) (CongruentesA resto2 divisor2)
   | esMultiplo divisor1 divisor2 = (mod resto1 divisor2) == (mod resto2 divisor2)
   | otherwise = False
+
+-- En este caso en que se devuelve un booleano,
+-- es mejor usar directamente un AND, en vez de guardas
+incluido2 (CongruentesA resto1 divisor1) (CongruentesA resto2 divisor2) = 
+  esMultiplo divisor1 divisor2 && 
+  ((mod resto1 divisor2) == (mod resto2 divisor2))
+
+interseccion :: ProgAritmetica -> ProgAritmetica -> ProgAritmetica
+
